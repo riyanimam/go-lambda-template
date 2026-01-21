@@ -1,0 +1,68 @@
+# golangci-lint configuration
+# https://golangci-lint.run/usage/configuration/
+
+version: 2
+
+run:
+  timeout: 5m
+  go: "1.24"
+  modules-download-mode: readonly
+
+linters:
+  enable:
+    - errcheck        # Check for unchecked errors
+    - govet           # Reports suspicious constructs
+    - ineffassign     # Detect ineffectual assignments
+    - staticcheck     # Comprehensive static analyzer
+    - unused          # Check for unused constants, variables, functions, and types
+    - misspell        # Find misspelled words
+    - revive          # Drop-in replacement for golint
+    - unconvert       # Remove unnecessary type conversions
+    - unparam         # Find unused function parameters
+    - gosec           # Security-focused linter
+    - gocritic        # Opinionated linter with many checks
+    - nilerr          # Find the code that returns nil even if it checks that the error is not nil
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
+  govet:
+    enable-all: true
+    disable:
+      - shadow  # Can be too strict
+
+  gosec:
+    excludes:
+      - G104  # Audit errors not checked (covered by errcheck)
+
+  revive:
+    rules:
+      - name: exported
+        disabled: false
+      - name: unexported-return
+        disabled: false
+      - name: var-naming
+        disabled: false
+
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - style
+      - performance
+    disabled-checks:
+      - ifElseChain
+      - whyNoLint
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+  exclude-rules:
+    # Exclude some linters from running on tests files
+    - path: _test\.go
+      linters:
+        - gosec
+        - gocritic

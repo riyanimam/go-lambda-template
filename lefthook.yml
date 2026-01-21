@@ -1,0 +1,43 @@
+# Lefthook Git Hooks Configuration
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    go-fmt:
+      glob: "*.go"
+      run: gofmt -l -s -w {staged_files} && git add {staged_files}
+      stage_fixed: true
+
+    go-vet:
+      glob: "*.go"
+      run: go vet ./...
+
+    terraform-fmt:
+      glob: "*.tf"
+      run: terraform fmt -check -recursive terraform/
+
+    yaml-lint:
+      glob: "*.{yaml,yml}"
+      run: yamllint {staged_files}
+
+    markdown-lint:
+      glob: "*.md"
+      run: mdformat --check {staged_files}
+
+    trailing-whitespace:
+      glob: "*.{go,md,yml,yaml,tf,tfvars,json}"
+      run: |
+        if grep -n '[[:space:]]$' {staged_files}; then
+          echo "Error: Trailing whitespace found"
+          exit 1
+        fi
+
+pre-push:
+  parallel: false
+  commands:
+    test:
+      run: go test -v -race -coverprofile=coverage.out ./...
+
+    build:
+      run: go build -o bootstrap -ldflags="-s -w" ./src/main.go

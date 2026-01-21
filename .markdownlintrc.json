@@ -1,0 +1,13 @@
+{
+  "default": true,
+  "line-length": {
+    "line_length": 120,
+    "code_blocks": false
+  },
+  "no-inline-html": {
+    "allowed_elements": ["img", "br", "details", "summary"]
+  },
+  "no-duplicate-heading": {
+    "siblings_only": true
+  }
+}
