@@ -17,7 +17,7 @@ This guide covers the development workflow for the go-lambda-template project.
 
 ### Required Software
 
-- **Go**: 1.23 or higher
+- **Go**: 1.24 or higher
 
   - Download from [go.dev](https://go.dev/dl/)
   - Verify installation: `go version`

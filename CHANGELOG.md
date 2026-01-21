@@ -7,11 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+
+- **CRITICAL**: Upgraded Go to v1.24 to fix 9 security vulnerabilities in standard library
+  - GO-2025-4175: Improper DNS name constraint validation in crypto/x509
+  - GO-2025-4155: Excessive resource consumption in crypto/x509 error string printing
+  - GO-2025-4013: Panic when validating DSA certificates in crypto/x509
+  - GO-2025-4012: Memory exhaustion from unlimited cookie parsing in net/http
+  - GO-2025-4011: Memory exhaustion from DER payload parsing in encoding/asn1
+  - GO-2025-4010: IPv6 hostname validation bypass in net/url
+  - GO-2025-4009: Quadratic complexity in PEM parsing in encoding/pem
+  - GO-2025-4008: ALPN negotiation information leakage in crypto/tls
+  - GO-2025-4007: Quadratic complexity in name constraint checking in crypto/x509
+
 ### Changed
 
-- Updated Go to version 1.23 (latest stable)
-- Updated golangci-lint to v1.63.4 (latest)
-- Updated Terraform to v1.10.3 (latest)
+- Updated Go to version 1.24 (latest stable) - fixes 9 critical vulnerabilities
+- Updated CI testing matrix to Go 1.23.x and 1.24.x
+- Updated golangci-lint target version to 1.24
 - Updated `github.com/stretchr/testify` to v1.11.1 (from v1.7.2)
 - Updated all documentation to reflect Go 1.23 requirement
 

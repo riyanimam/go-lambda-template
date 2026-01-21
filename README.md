@@ -1,6 +1,6 @@
 # go-lambda-template
 
-[![Go Version](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go)](https://go.dev/)
+[![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-FF9900?style=flat&logo=amazon-aws)](https://aws.amazon.com/lambda/)
 [![golangci-lint](https://img.shields.io/badge/golangci--lint-1.63-blue?style=flat)](https://golangci-lint.run/)
 [![Code Style](https://img.shields.io/badge/code%20style-gofmt-blue.svg)](https://pkg.go.dev/cmd/gofmt)
@@ -20,7 +20,7 @@ A production-ready Go template for AWS Lambda functions with comprehensive tooli
 
 ## Prerequisites
 
-- **Go**: 1.23 or higher
+- **Go**: 1.24 or higher
 - **Git**: 2.30 or higher
 - **AWS CLI**: Configured with appropriate credentials
 - **Terraform**: 1.10 or higher (for infrastructure deployment)
