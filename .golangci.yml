@@ -3,7 +3,7 @@
 
 run:
   timeout: 5m
-  go: "1.23"
+  go: "1.22"
   modules-download-mode: readonly
 
 linters:
@@ -23,7 +23,6 @@ linters:
     - gosec           # Security-focused linter
     - gocritic        # Opinionated linter with many checks
     - stylecheck      # Replacement for golint
-    - exportloopref   # Check for pointers to enclosing loop variables
     - nilerr          # Find the code that returns nil even if it checks that the error is not nil
 
 linters-settings:

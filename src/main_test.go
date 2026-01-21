@@ -5,6 +5,9 @@ import (
 	"testing"
 )
 
+// contextKey is a custom type for context keys to avoid collisions
+type contextKey string
+
 func TestHandler(t *testing.T) {
 	tests := []struct {
 		name        string
@@ -32,7 +35,7 @@ func TestHandler(t *testing.T) {
 		},
 		{
 			name:        "invocation with custom context",
-			ctx:         context.WithValue(context.Background(), "key", "value"),
+			ctx:         context.WithValue(context.Background(), contextKey("key"), "value"),
 			request:     Request{Name: "Bob"},
 			wantMessage: "Hello, Bob!",
 			wantStatus:  200,
@@ -83,7 +86,7 @@ func BenchmarkHandler(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		_, _ = handler(ctx, request)
+		_, _ = handler(ctx, request) //nolint:errcheck
 	}
 }
 
