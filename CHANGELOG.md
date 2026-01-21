@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated Go to version 1.23 (latest stable)
+- Updated golangci-lint to v1.63.4 (latest)
+- Updated Terraform to v1.10.3 (latest)
+- Updated `github.com/stretchr/testify` to v1.11.1 (from v1.7.2)
+- Updated all documentation to reflect Go 1.23 requirement
+
 ### Added
 
-- Initial project setup with Go 1.22+ support
+- Initial project setup with Go 1.23 support
 - AWS Lambda handler implementation
 - Comprehensive CI/CD workflows
   - Multi-version testing (Go 1.22.x, 1.23.x)

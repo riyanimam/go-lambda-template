@@ -17,7 +17,7 @@ This guide covers the development workflow for the go-lambda-template project.
 
 ### Required Software
 
-- **Go**: 1.22 or higher
+- **Go**: 1.23 or higher
   - Download from [go.dev](https://go.dev/dl/)
   - Verify installation: `go version`
 
@@ -29,7 +29,7 @@ This guide covers the development workflow for the go-lambda-template project.
   - Install from [AWS CLI Installation Guide](https://aws.amazon.com/cli/)
   - Configure with `aws configure`
 
-- **Terraform**: 1.9.0 or higher
+- **Terraform**: 1.10 or higher
   - Download from [terraform.io](https://www.terraform.io/downloads)
   - Verify installation: `terraform version`
 
