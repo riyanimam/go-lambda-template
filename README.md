@@ -2,7 +2,7 @@
 
 [![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![AWS Lambda](https://img.shields.io/badge/AWS-Lambda-FF9900?style=flat&logo=amazon-aws)](https://aws.amazon.com/lambda/)
-[![golangci-lint](https://img.shields.io/badge/golangci--lint-1.63-blue?style=flat)](https://golangci-lint.run/)
+[![golangci-lint](https://img.shields.io/badge/golangci--lint-latest-blue?style=flat)](https://golangci-lint.run/)
 [![Code Style](https://img.shields.io/badge/code%20style-gofmt-blue.svg)](https://pkg.go.dev/cmd/gofmt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./DEVELOPMENT.md)
