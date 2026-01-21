@@ -1,3 +1,4 @@
+// Package main provides a Lambda function handler.
 package main
 
 import (
@@ -20,7 +21,7 @@ type Request struct {
 }
 
 // handler is the Lambda function handler
-func handler(ctx context.Context, request Request) (Response, error) {
+func handler(_ context.Context, request Request) (Response, error) {
 	// Log the incoming request
 	log.Printf("Processing request: %+v", request)
 
