@@ -36,13 +36,13 @@ A production-ready Go template for AWS Lambda functions with comprehensive tooli
    cd go-lambda-template
    ```
 
-2. Install dependencies:
+1. Install dependencies:
 
    ```bash
    go mod download
    ```
 
-3. Set up Git hooks (optional but recommended):
+1. Set up Git hooks (optional but recommended):
 
    ```bash
    # Install lefthook
@@ -60,20 +60,20 @@ A production-ready Go template for AWS Lambda functions with comprehensive tooli
    go build -o bootstrap ./src/main.go
    ```
 
-2. **Run tests**:
+1. **Run tests**:
 
    ```bash
    go test -v ./...
    ```
 
-3. **Run tests with coverage**:
+1. **Run tests with coverage**:
 
    ```bash
    go test -v -race -coverprofile=coverage.out ./...
    go tool cover -html=coverage.out
    ```
 
-4. **Lint code**:
+1. **Lint code**:
 
    ```bash
    # Install golangci-lint
@@ -83,7 +83,7 @@ A production-ready Go template for AWS Lambda functions with comprehensive tooli
    golangci-lint run ./...
    ```
 
-5. **Format code**:
+1. **Format code**:
 
    ```bash
    gofmt -l -s -w .
@@ -131,15 +131,15 @@ See [terraform/README.md](terraform/README.md) for detailed deployment instructi
 
 ## Available Commands
 
-| Command                                      | Description                      |
-| -------------------------------------------- | -------------------------------- |
-| `go build -o bootstrap ./src/main.go`        | Build the Lambda function        |
-| `go test -v ./...`                           | Run all tests                    |
+| Command                                             | Description                                |
+| --------------------------------------------------- | ------------------------------------------ |
+| `go build -o bootstrap ./src/main.go`               | Build the Lambda function                  |
+| `go test -v ./...`                                  | Run all tests                              |
 | `go test -v -race -coverprofile=coverage.out ./...` | Run tests with race detection and coverage |
-| `golangci-lint run ./...`                    | Run comprehensive linting        |
-| `gofmt -l -s -w .`                           | Format all Go code               |
-| `go mod tidy`                                | Update dependencies              |
-| `lefthook run pre-commit`                    | Run pre-commit hooks manually    |
+| `golangci-lint run ./...`                           | Run comprehensive linting                  |
+| `gofmt -l -s -w .`                                  | Format all Go code                         |
+| `go mod tidy`                                       | Update dependencies                        |
+| `lefthook run pre-commit`                           | Run pre-commit hooks manually              |
 
 ## CI/CD Workflows
 
@@ -155,9 +155,9 @@ This template includes comprehensive GitHub Actions workflows:
 Contributions are welcome! Please see [DEVELOPMENT.md](./DEVELOPMENT.md) for development guidelines.
 
 1. Create a feature branch
-2. Make your changes
-3. Run tests and linting
-4. Submit a pull request
+1. Make your changes
+1. Run tests and linting
+1. Submit a pull request
 
 ## License
 

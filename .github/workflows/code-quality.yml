@@ -31,7 +31,8 @@ jobs:
 
       - name: Install golangci-lint
         run: |
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.63.4
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh |
+            sh -s -- -b $(go env GOPATH)/bin v1.63.4
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
 
       - name: Run golangci-lint
@@ -43,7 +44,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          file: ./coverage.out
+          files: ./coverage.out
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false

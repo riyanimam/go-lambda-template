@@ -18,34 +18,41 @@ This guide covers the development workflow for the go-lambda-template project.
 ### Required Software
 
 - **Go**: 1.23 or higher
+
   - Download from [go.dev](https://go.dev/dl/)
   - Verify installation: `go version`
 
 - **Git**: 2.30 or higher
+
   - Download from [git-scm.com](https://git-scm.com/)
   - Verify installation: `git --version`
 
 - **AWS CLI**: Latest version
+
   - Install from [AWS CLI Installation Guide](https://aws.amazon.com/cli/)
   - Configure with `aws configure`
 
 - **Terraform**: 1.10 or higher
+
   - Download from [terraform.io](https://www.terraform.io/downloads)
   - Verify installation: `terraform version`
 
 ### Optional but Recommended
 
 - **golangci-lint**: Comprehensive linter
+
   ```bash
   go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
   ```
 
 - **lefthook**: Git hooks manager
+
   ```bash
   go install github.com/evilmartians/lefthook@latest
   ```
 
 - **govulncheck**: Vulnerability scanner
+
   ```bash
   go install golang.org/x/vuln/cmd/govulncheck@latest
   ```
@@ -55,18 +62,21 @@ This guide covers the development workflow for the go-lambda-template project.
 ### Initial Setup
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/riyanimam/go-lambda-template.git
    cd go-lambda-template
    ```
 
-2. **Install dependencies**:
+1. **Install dependencies**:
+
    ```bash
    go mod download
    go mod verify
    ```
 
-3. **Install development tools**:
+1. **Install development tools**:
+
    ```bash
    # Install golangci-lint
    go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
@@ -78,12 +88,14 @@ This guide covers the development workflow for the go-lambda-template project.
    go install golang.org/x/vuln/cmd/govulncheck@latest
    ```
 
-4. **Set up Git hooks** (recommended):
+1. **Set up Git hooks** (recommended):
+
    ```bash
    lefthook install
    ```
 
    This installs pre-commit and pre-push hooks that will:
+
    - Format code with `gofmt`
    - Run `go vet`
    - Check Terraform formatting
@@ -133,6 +145,7 @@ zip lambda-function.zip bootstrap
 ```
 
 **Build flags explained**:
+
 - `GOOS=linux GOARCH=amd64`: Target Linux AMD64 architecture
 - `CGO_ENABLED=0`: Disable CGO for static binary
 - `-tags lambda.norpc`: Use optimized Lambda runtime
@@ -246,6 +259,7 @@ govulncheck ./...
 ### Pre-commit Checks
 
 If you installed lefthook, these checks run automatically before each commit:
+
 - Code formatting (`gofmt`)
 - Static analysis (`go vet`)
 - Terraform formatting
@@ -254,6 +268,7 @@ If you installed lefthook, these checks run automatically before each commit:
 - Trailing whitespace check
 
 Run checks manually:
+
 ```bash
 lefthook run pre-commit
 ```
@@ -261,10 +276,12 @@ lefthook run pre-commit
 ### Pre-push Checks
 
 These checks run automatically before each push:
+
 - Full test suite with race detection
 - Build verification
 
 Run checks manually:
+
 ```bash
 lefthook run pre-push
 ```
@@ -274,6 +291,7 @@ lefthook run pre-push
 ### Branch Naming
 
 Follow this convention:
+
 - `feature/description` - New features
 - `fix/description` - Bug fixes
 - `docs/description` - Documentation updates
@@ -295,6 +313,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 **Types**: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
 
 **Examples**:
+
 ```
 feat: Add structured logging to Lambda handler
 fix: Resolve race condition in concurrent requests
@@ -304,22 +323,26 @@ docs: Update deployment guide with new IAM permissions
 ### Pull Request Process
 
 1. **Create a feature branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-2. **Make changes and commit**:
+1. **Make changes and commit**:
+
    ```bash
    git add .
    git commit -m "feat: Add your feature"
    ```
 
-3. **Push to GitHub**:
+1. **Push to GitHub**:
+
    ```bash
    git push origin feature/your-feature-name
    ```
 
-4. **Create Pull Request**:
+1. **Create Pull Request**:
+
    - Ensure all CI checks pass
    - Request review from team members
    - Address review comments
@@ -330,21 +353,25 @@ docs: Update deployment guide with new IAM permissions
 ### Local Deployment with Terraform
 
 1. **Navigate to terraform directory**:
+
    ```bash
    cd terraform
    ```
 
-2. **Initialize Terraform**:
+1. **Initialize Terraform**:
+
    ```bash
    terraform init
    ```
 
-3. **Review planned changes**:
+1. **Review planned changes**:
+
    ```bash
    terraform plan
    ```
 
-4. **Apply changes**:
+1. **Apply changes**:
+
    ```bash
    terraform apply
    ```
@@ -352,6 +379,7 @@ docs: Update deployment guide with new IAM permissions
 ### CI/CD Deployment
 
 The project uses GitHub Actions for automated deployment:
+
 - **Pull Requests**: Run tests, linting, and security scans
 - **Main Branch**: Run full test suite and create deployment artifacts
 
@@ -374,6 +402,7 @@ go mod download
 #### Build Failures on Lambda
 
 Ensure you're building for the correct architecture:
+
 ```bash
 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bootstrap ./src/main.go
 ```
@@ -405,13 +434,13 @@ lefthook install
 ## Best Practices
 
 1. **Always run tests before pushing**
-2. **Keep functions small and focused**
-3. **Use meaningful variable and function names**
-4. **Document exported functions and types**
-5. **Handle errors explicitly**
-6. **Use contexts for cancellation and timeouts**
-7. **Keep dependencies minimal**
-8. **Review security scan results**
+1. **Keep functions small and focused**
+1. **Use meaningful variable and function names**
+1. **Document exported functions and types**
+1. **Handle errors explicitly**
+1. **Use contexts for cancellation and timeouts**
+1. **Keep dependencies minimal**
+1. **Review security scan results**
 
 ## Additional Resources
 
